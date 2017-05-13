@@ -1,7 +1,7 @@
 Package: adminlte
 Type: Package
 Title: Shiny version of AdminLTE Dashboard
-Version: 0.1.0.9000
+Version: 0.0.0.9000
 Authors@R: c(person(given = "Felipe", family = "Santos", email = "info@autoblocs.com", role = c("aut", "cre")))
 Description: Fully functional AdminLTE theme for shiny. It covers some gaps
     that shinydashboard has and provides a uniform interface.
@@ -9,9 +9,10 @@ License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-    shiny,
     htmltools,
     shinydashboard
+Depends:
+    shiny
 URL: https://github.com/autoblocs/adminlte
 BugReports: https://github.com/autoblocs/adminlte/issues
 RoxygenNote: 6.0.1
