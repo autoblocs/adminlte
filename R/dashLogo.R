@@ -5,8 +5,22 @@
 #'
 #'
 #' @examples
-#'
-#'
+#' ## Only run this example in interactive R sessions
+#' if (interactive()) {
+#' # Basic dashboard page template
+#' library(shiny)
+#' clogo <- dashLogo()
+#' cheader <- dashHeader(clogo)
+#' shinyApp(
+#'   ui = dashboardPage(
+#'     cheader,
+#'     dashSidebar(),
+#'     dashBody(),
+#'     dashFooter()
+#'   ),
+#'   server = function(input, output) { }
+#' )
+#' }
 #' @export
 #' @importFrom shiny tags
 dashLogo <- function(mini = NULL,
