@@ -2,7 +2,7 @@
 #'
 #' It contains logos, dropdown menus: messages, notifications, tasks and user menus
 #'
-#' @param logo  An object created by \code{dashLogo}.
+#' @param logo  An object created by \code{\link{dashLogo}}.
 #' @param ... Objects created by \code{menuItem}.
 #'
 #'
