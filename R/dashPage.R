@@ -2,10 +2,10 @@
 #'
 #' Complete Dashboard page based on AdminLTE free theme
 #'
-#' @param header An object created by \code{dashHeader}.
-#' @param sidebar An object created by \code{dashSidebar}.
-#' @param body An object created by \code{dashBody}.
-#' @param footer An object created by \code{dashFooter}.
+#' @param header An object created by \code{\link{dashHeader}}.
+#' @param sidebar An object created by \code{\link{dashSideBar}}.
+#' @param body An object created by \code{\link{dashBody}}.
+#' @param footer An object created by \code{\link{dashFooter}}.
 #' @param title Browser's title bar.
 #' @param style A css style.
 #' @param skin A color theme. One of \code{"blue"}, \code{"black"},
@@ -18,15 +18,16 @@
 #' # Basic dashboard page template
 #' library(shiny)
 #' shinyApp(
-#'   ui = dashboardPage(
+#'   ui = dashPage(
 #'     dashHeader(),
-#'     dashSidebar(),
+#'     dashSideBar(),
 #'     dashBody(),
 #'     dashFooter()
 #'   ),
 #'   server = function(input, output) { }
 #' )
 #' }
+#'
 #' @export
 #' @importFrom shiny tags bootstrapPage
 dashPage <- function(header, sidebar, body, footer = NULL, title = "AdminLTE 2 | General UI", style = "height: auto;",  skin = "blue"){
@@ -52,7 +53,7 @@ dashPage <- function(header, sidebar, body, footer = NULL, title = "AdminLTE 2 |
         }
     }
     title <- title %OR% extractTitle(header)
-    content <- shiny::tags$div(class = "wrapper", header, sidebar, body)
+    content <- shiny::tags$div(class = "wrapper", header, sidebar, body, footer)
     ## sidebar menus are visible
     addDeps(shiny::tags$body(class = paste0("skin-", skin, " sidebar-mini"), style = style,
                       shiny::bootstrapPage(content, title = title)))
