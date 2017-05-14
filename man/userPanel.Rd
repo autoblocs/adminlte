@@ -10,21 +10,61 @@ userPanel(user_nm = "User Name", img_src = "avatar.png", ...,
 \arguments{
 \item{user_nm}{User name.}
 
-\item{img_src}{image path.}
+\item{img_src}{Image path.}
 
 \item{...}{An object created by \code{shiny::tag}.}
 
-\item{img_alt}{aimga alternative text.}
+\item{img_alt}{An image alternative text.}
 }
 \description{
 Dashboard user panel.
 }
 \examples{
+if (interactive()) {
 
-userPanel(
-    user_nm = "User Image",
-    img_src = "avatar.png",
-    img_alt = "User Image",
-    shiny::tags$a(href = "#", shiny::icon("circle text-success"), "Online"))
+  # AdminLTE example
+  library(adminlte)
+
+  tdir <- tempdir()
+  dir.create(file.path(tdir, 'shiny', 'www'), recursive = TRUE, showWarnings = FALSE)
+  img_source <- system.file('shiny', 'dash1', 'www', 'avatar.png', package = 'adminlte')
+  file.copy(img_source, file.path(tdir, 'shiny', 'www', 'avatar.png'))
+
+  cat(file = file.path(tdir, 'shiny', 'app.R'), "
+  usrPanel <- userPanel(user_nm = \\'User Name\\',
+      img_src = \\'avatar.png\\',
+      img_alt = \\'User Image\\',
+      shiny::tags$a(href = \\'#\\', shiny::icon(\\'circle text-success\\'), \\'Online\\')
+  )
+
+   shiny::shinyApp(
+    ui = dashPage(
+        dashHeader(),
+        dashSideBar(
+            usrPanel,
+            menuTab(
+                menuSection(\\'SECTION  1\\'),
+                menuItem(\\'Dashboard\\', tabName = \\'dashboard\\',
+                icon = icon(\\'dashboard\\')),
+                menuItem(text = \\'Charts\\', tabName = \\'menu1_item4\\',
+                icon = icon(\\'pie-chart\\'),
+                         menuSubItem(\\'ChartJS\\', \\'menu1_item4_subitem1\\',
+                         icon = icon(\\'circle-o\\')),
+                         menuSubItem(\\'Morris\\', \\'menu1_item4_subitem2\\',
+                         icon = icon(\\'circle-o\\'))
+                )
+            )),
+        dashBody(),
+    ),
+    server = function(input, output) { }
+   )
+
+   shiny::runApp(file.path(tdir, 'shiny'))
+
+  ")
+
+  shiny::runApp(file.path(tdir, 'shiny'))
+
+  }
 
 }

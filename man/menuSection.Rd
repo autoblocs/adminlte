@@ -2,29 +2,61 @@
 % Please edit documentation in R/menuSection.R
 \name{menuSection}
 \alias{menuSection}
-\title{SideBar menu section}
+\alias{menuItem}
+\alias{menuSubItem}
+\title{Dashboard sidebar menu}
 \usage{
 menuSection(x)
+
+menuItem(text, ..., icon = NULL, status = NULL, tabName = NULL,
+  href = NULL, newtab = TRUE, selected = NULL, badges = NULL)
+
+menuSubItem(text, tabName = NULL, href = NULL, newtab = TRUE,
+  icon = shiny::icon("angle-double-right"), selected = NULL)
 }
 \arguments{
-\item{x}{Section name}
+\item{x}{Section name.}
+
+\item{text}{Menu label.}
+
+\item{...}{Other menu items.}
+
+\item{icon}{A \code{shiny::icon} object.}
+
+\item{status}{A \link{label} object.}
+
+\item{tabName}{Menu identification}
+
+\item{href}{url reference (default is to consider href = "#")}
+
+\item{newtab}{If \code{href} is supplied, should the link open in a new
+browser tab?}
+
+\item{selected}{If \code{TRUE}, this \code{menuItem} or \code{menuSubItem}
+will start selected. If no item have \code{selected=TRUE}, then the first
+\code{menuItem} will start selected.}
+
+\item{badges}{A \link{badge} object.}
 }
 \description{
-SideBar menu section
+Dashboard sidebar menu
 }
 \examples{
 if (interactive()) {
-# Basic dashboard page template
-library(shiny)
-shinyApp(
+# AdminLTE example
+library(adminlte)
+shiny::shinyApp(
   ui = dashPage(
     dashHeader(),
     dashSideBar(menuTab(
         menuSection("SECTION  1"),
-        menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard"))
+        menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")),
+        menuItem(text = "Charts", tabName = "menu1_item4", icon = icon("pie-chart"),
+            menuSubItem("ChartJS", "menu1_item4_subitem1", icon = icon("circle-o")),
+            menuSubItem("Morris", "menu1_item4_subitem2", icon = icon("circle-o"))
+            )
         )),
     dashBody(),
-    dashFooter()
   ),
   server = function(input, output) { }
 )

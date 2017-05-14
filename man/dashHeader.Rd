@@ -22,11 +22,10 @@ library(shiny)
 
 cheader <- dashHeader()
 shinyApp(
-  ui = dashboardPage(
+  ui = dashPage(
     cheader,
-    dashSidebar(),
-    dashBody(),
-    dashFooter()
+    dashSideBar(),
+    dashBody()
   ),
   server = function(input, output) { }
 )

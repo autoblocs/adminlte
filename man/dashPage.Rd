@@ -36,8 +36,7 @@ shinyApp(
   ui = dashPage(
     dashHeader(),
     dashSideBar(),
-    dashBody(),
-    dashFooter()
+    dashBody()
   ),
   server = function(input, output) { }
 )

@@ -18,15 +18,16 @@ Dashboard Logo
 ## Only run this example in interactive R sessions
 if (interactive()) {
 # Basic dashboard page template
-library(shiny)
-clogo <- dashLogo()
+library(adminlte)
+clogo <- dashLogo(mini = shiny::tags$b("ALTE"),
+                  large = shiny::tags$b("AdminLTE")
+         )
 cheader <- dashHeader(clogo)
 shinyApp(
-  ui = dashboardPage(
+  ui = dashPage(
     cheader,
-    dashSidebar(),
-    dashBody(),
-    dashFooter()
+    dashSideBar(),
+    dashBody()
   ),
   server = function(input, output) { }
 )
