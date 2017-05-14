@@ -17,6 +17,7 @@ cfooter <- dashFooter(
 usrPanel <- userPanel("Alexander Price", "user2-160x160.jpg",
                       shiny::tags$a(href = "#", shiny::icon("circle text-success"), "Online"))
 
+#' @importFrom shiny tags icon tabPanel
 ui <- dashPage(
     dashHeader(),
     dashSideBar(
@@ -90,7 +91,34 @@ ui <- dashPage(
     dashBody(
         tabItems(
             ## MENU DASHBOARD
-            tabItem(tabName = "menu1_item1_subitem1", bodyContentHeader(tags$h1("Dashboard", tags$small("Control panel")))),
+            tabItem(tabName = "menu1_item1_subitem1",
+                    bodyContentHeader(tags$h1("Dashboard", tags$small("Control panel")),
+                                      breadcrumb(c("Home", "DashBoard"))),
+                    shiny::fluidRow(
+                        infoBox2(150, "New Orders", shiny::icon("shopping-cart"), "aqua"),
+                        infoBox2("53%", "Bounce Rate", shiny::icon("bar-chart"), "green"),
+                        infoBox2(44, "User Registrations", shiny::icon("user-plus"), "yellow"),
+                        infoBox2(65, "Unique visitors", shiny::icon("pie-chart"), "red")
+                    ),
+                    shiny::fluidRow(
+                        shiny::tags$section(class = "col-lg-7 connectedSortable ui-sortable",
+                                            tabBox(
+                                                title = "Sales", icon = shiny::icon("inbox"),
+                                                side = "right", id = "tbsales", width = 12,
+                                                shiny::tabPanel(title = "Area", "Area Chart"),
+                                                shiny::tabPanel(title = "Donut", "Donut Chart")
+
+                                            ),
+                                            box(title = "Header 2-L", footer = "Footer 2-L", width = 12),
+                                            box(title = "Header 3-L", footer = "Footer 3-L", width = 12),
+                                            box(title = "Header 4-L", footer = "Footer 4-L", width = 12)
+                                        ),
+                        shiny::tags$section(class = "col-lg-5 connectedSortable ui-sortable",
+                                        box(title = "Header 1-R", footer = "Footer 1-R", width = 12),
+                                        box(title = "Header 2-R", footer = "Footer 2-R", width = 12)
+                                        )
+                    )
+            ),
             tabItem(tabName = "menu1_item1_subitem2", bodyContentHeader(tags$h1("Dashboard", tags$small("Version 2.0")))),
             ## MENU LAYOUT OPTIONS
             tabItem(tabName = "menu1_item2_subitem1", bodyContentHeader(tags$h1("Top Navigation", tags$small("Example 2.0")))),
