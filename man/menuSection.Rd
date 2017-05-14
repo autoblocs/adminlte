@@ -29,12 +29,10 @@ menuSubItem(text, tabName = NULL, href = NULL, newtab = TRUE,
 
 \item{href}{url reference (default is to consider href = "#")}
 
-\item{newtab}{If \code{href} is supplied, should the link open in a new
-browser tab?}
+\item{newtab}{If \code{href} is supplied, should the link open in a new browser tab?}
 
-\item{selected}{If \code{TRUE}, this \code{menuItem} or \code{menuSubItem}
-will start selected. If no item have \code{selected=TRUE}, then the first
-\code{menuItem} will start selected.}
+\item{selected}{If \code{TRUE}, this \code{menuItem} or \code{menuSubItem} will start selected. If no item have
+\code{selected=TRUE}, then the first \code{menuItem} will start selected.}
 
 \item{badges}{A \link{badge} object.}
 }

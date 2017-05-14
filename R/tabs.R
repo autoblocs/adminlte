@@ -1,10 +1,9 @@
 #' A container for tab items
 #'
-#' @param ... Items to put in the container. Each item should be a
-#'   \code{\link{tabItem}}.
+#' @param ... Items to put in the container. Each item should be a \code{\link{tabItem}}.
 #'
-#' @seealso \code{\link{menuItem}}, \code{\link{menuSubItem}},
-#'   \code{\link{tabItem}}. See \code{\link{sidebarMenu}} for a usage example.
+#' @seealso \code{\link{menuItem}}, \code{\link{menuSubItem}}, \code{\link{tabItem}}. See \code{\link{sidebarMenu}} for
+#'   a usage example.
 #' @export
 #' @importFrom shiny tags
 tabItems <- function(...) {

@@ -8,8 +8,8 @@
 #' @param footer An object created by \code{\link{dashFooter}}.
 #' @param title Browser's title bar.
 #' @param style A css style.
-#' @param skin A color theme. One of \code{"blue"}, \code{"black"},
-#'   \code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.
+#' @param skin A color theme. One of \code{"blue"}, \code{"black"}, \code{"purple"}, \code{"green"}, \code{"red"}, or
+#'   \code{"yellow"}.
 #'
 #'
 #' @examples

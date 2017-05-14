@@ -1,5 +1,4 @@
-# Add an html dependency, without overwriting existing ones
-#' @importFrom htmltools htmlDependencies
+#Add an html dependency, without overwriting existing ones ' @importFrom htmltools htmlDependencies
 appendDependencies <- function(x, value) {
     if (inherits(value, "html_dependency"))
         value <- list(value)

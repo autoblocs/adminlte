@@ -9,11 +9,9 @@ rExample(ex = "dash1")
 \arguments{
 \item{ex}{name of the example
 
-the list of implemented examples is:
+  the list of implemented examples is:
 
-\itemize{
-  \item \code{dash1}
-}}
+  \itemize{ \item \code{dash1} }}
 }
 \description{
 adminlte examples

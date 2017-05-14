@@ -8,11 +8,9 @@
 #' @param status A \link{label} object.
 #' @param tabName Menu identification
 #' @param href url reference (default is to consider href = "#")
-#' @param newtab If \code{href} is supplied, should the link open in a new
-#'   browser tab?
-#' @param selected If \code{TRUE}, this \code{menuItem} or \code{menuSubItem}
-#'   will start selected. If no item have \code{selected=TRUE}, then the first
-#'   \code{menuItem} will start selected.
+#' @param newtab If \code{href} is supplied, should the link open in a new browser tab?
+#' @param selected If \code{TRUE}, this \code{menuItem} or \code{menuSubItem} will start selected. If no item have
+#'   \code{selected=TRUE}, then the first \code{menuItem} will start selected.
 #' @param badges A \link{badge} object.
 #' @param ... Other menu items.
 #'

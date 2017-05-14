@@ -21,8 +21,8 @@ dashPage(header, sidebar, body, footer = NULL,
 
 \item{style}{A css style.}
 
-\item{skin}{A color theme. One of \code{"blue"}, \code{"black"},
-\code{"purple"}, \code{"green"}, \code{"red"}, or \code{"yellow"}.}
+\item{skin}{A color theme. One of \code{"blue"}, \code{"black"}, \code{"purple"}, \code{"green"}, \code{"red"}, or
+\code{"yellow"}.}
 }
 \description{
 Complete Dashboard page based on AdminLTE free theme

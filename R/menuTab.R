@@ -38,8 +38,8 @@ menuTab <- function(id, ...){
             # `selectedTab`. Then set `data-start-selected` to 1 for that tab and 0
             # for all others.
 
-            # Given a menuItem and a logical value for `selected`, set the
-            # data-start-selected attribute to the appropriate value (1 or 0).
+            # Given a menuItem and a logical value for `selected`, set the data-start-selected attribute to the
+            # appropriate value (1 or 0).
             selectItem <- function(item, selected) {
                 if (length(item$children) == 0) {
                     return(item)

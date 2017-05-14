@@ -2,11 +2,9 @@
 #'
 #' @param ex name of the example
 #'
-#' the list of implemented examples is:
+#'   the list of implemented examples is:
 #'
-#' \itemize{
-#'   \item \code{dash1}
-#' }
+#'   \itemize{ \item \code{dash1} }
 #'
 #' @examples
 #' if (interactive()) {
