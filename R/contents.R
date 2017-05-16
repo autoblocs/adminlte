@@ -318,3 +318,12 @@ tabBox <- function(..., id = NULL, selected = NULL, title = NULL, icon = NULL,
     div(class = paste0("col-sm-", width), content)
 }
 
+#' @export
+column <- function(width, ..., offset = 0){
+
+    colClass <- paste0("col-sm-", width)
+    if (offset > 0)
+        colClass <- paste0(colClass, " col-sm-offset-", offset)
+    tags$div(class = colClass, ...)
+
+}

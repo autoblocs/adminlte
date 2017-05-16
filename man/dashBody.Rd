@@ -4,10 +4,12 @@
 \alias{dashBody}
 \title{Dashboard body}
 \usage{
-dashBody(...)
+dashBody(..., header = NULL)
 }
 \arguments{
 \item{...}{An object created by \code{shiny::tags}.}
+
+\item{header}{An object created by \code{adminlte::bodyContentHeader}.}
 }
 \description{
 Dashboard body
