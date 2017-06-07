@@ -75,9 +75,10 @@ menuItem <- function(text, ..., icon = NULL, status = NULL,
 
     if (length(subItems) == 0) {
         return(shiny::tags$li(
+            `class` = if (isTRUE(selected)) "active" else NULL,
             shiny::tags$a(
                 href = href, `data-toggle` = if (isTabItem) "tab",
-                `data-value` = if (!is.null(tabName)) tabName, `data-start-selected` = if (isTRUE(selected)) 1 else NULL,
+                `data-value` = if (!is.null(tabName)) tabName,
                 target = target, icon, shiny::tags$span(text), badges)))
     }
 
