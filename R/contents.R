@@ -106,10 +106,7 @@ infoBox2 <- function (value = NULL, subtitle = NULL, icon = shiny::icon("bar-cha
                       tags$div(class = "inner",
                                tags$h3(value),
                                tags$p(subtitle)),
-                      tags$div(class = "icon", icon),
-                      tags$a(class = "small-box-footer", href = "#",
-                             "More Info",
-                             shiny::icon("arrow-circle-right")))
+                      tags$div(class = "icon", icon))
     )
 }
 
@@ -326,4 +323,25 @@ column <- function(width, ..., offset = 0){
         colClass <- paste0(colClass, " col-sm-offset-", offset)
     tags$div(class = colClass, ...)
 
+}
+
+#' @export
+infoBoxOutput <- function(outputId, width = 4) {
+    shiny::uiOutput(outputId, class = paste0("col-sm-", width))
+}
+
+#' @export
+renderInfoBox <- function(expr, env = parent.frame(), quoted = FALSE) {
+    # Convert the expression to a function
+    vbox_fun <- shiny::exprToFunction(expr, env, quoted)
+
+    # Wrap that function in another function which strips off the outer div and
+    # send it to renderUI.
+    shiny::renderUI({
+        vbox <- vbox_fun()
+        tagAssert(vbox, type = "div")
+
+        # Strip off outer div, since it's already present in output
+        vbox$children[[1]]
+    })
 }
