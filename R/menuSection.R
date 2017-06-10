@@ -44,7 +44,7 @@ menuSection <- function(x){
 #' @rdname menuSection
 #' @export
 #' @importFrom shiny tags
-menuItem <- function(text, ..., icon = NULL, status = NULL,
+menuItem <- function(inputId, text, ..., icon = NULL, status = NULL,
                      tabName = NULL, href = NULL, newtab = TRUE, selected = NULL, badges = NULL){
 
     subItems <- list(...)
@@ -75,6 +75,7 @@ menuItem <- function(text, ..., icon = NULL, status = NULL,
 
     if (length(subItems) == 0) {
         return(shiny::tags$li(
+            id = inputId,
             shiny::tags$a(
                 href = href, `data-toggle` = if (isTabItem) "tab",
                 `data-value` = if (!is.null(tabName)) tabName, `data-start-selected` = if (isTRUE(selected)) 1 else NULL,

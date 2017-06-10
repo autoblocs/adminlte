@@ -8,7 +8,7 @@
 \usage{
 menuSection(x)
 
-menuItem(text, ..., icon = NULL, status = NULL, tabName = NULL,
+menuItem(inputId, text, ..., icon = NULL, status = NULL, tabName = NULL,
   href = NULL, newtab = TRUE, selected = NULL, badges = NULL)
 
 menuSubItem(text, tabName = NULL, href = NULL, newtab = TRUE,
